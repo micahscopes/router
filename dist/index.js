@@ -56,7 +56,8 @@ var src_default = {
   on,
   off,
   start({ handleInitial = true } = {}) {
-    handleInitial && handleChange(window.location.pathname || "/", "init");
+    const hash = window.location.hash != "" && window.location.hash;
+    handleInitial && handleChange(hash || window.location.pathname || "/", "init");
     window.addEventListener(
       "popstate",
       () => handleChange(window.location.pathname, "popstate")
@@ -65,7 +66,6 @@ var src_default = {
       "hashchange",
       () => {
         handleChange(window.location.hash, "hashchange");
-        console.log("hashchange in very simple router", window.location.pathname + window.location.hash);
       }
     );
   },

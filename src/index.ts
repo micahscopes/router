@@ -49,7 +49,8 @@ export default {
   off,
 
   start({ handleInitial = true } = {}) {
-    handleInitial && handleChange(window.location.pathname || '/', 'init')
+    const hash = window.location.hash != '' && window.location.hash
+    handleInitial && handleChange(hash || window.location.pathname || '/', 'init')
     window.addEventListener('popstate', () =>
       handleChange(window.location.pathname, 'popstate')
     )
