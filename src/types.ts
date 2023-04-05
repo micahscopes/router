@@ -1,4 +1,4 @@
-export type RouteTrigger = 'init' | 'push' | 'replace' | 'popstate'
+export type RouteTrigger = 'init' | 'push' | 'replace' | 'popstate' | 'hashchange'
 
 export type RouteParams = Record<string, string>
 

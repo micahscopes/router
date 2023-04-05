@@ -53,6 +53,10 @@ export default {
     window.addEventListener('popstate', () =>
       handleChange(window.location.pathname, 'popstate')
     )
+    window.addEventListener('hashchange', () => {
+      handleChange(window.location.hash, 'hashchange')
+    }
+    )
   },
 
   route<T extends string>(path: T, action: TypedRouteAction<T>) {
